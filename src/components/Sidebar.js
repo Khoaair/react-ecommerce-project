@@ -11,6 +11,7 @@ import { Cart } from '../pages';
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
   return (
     <SidebarContainer>
       <aside
@@ -32,11 +33,13 @@ const Sidebar = () => {
               </li>
             );
           })}
-          <li>
-            <Link to='/checkout' onClick={closeSidebar}>
-              Checkout
-            </Link>
-          </li>
+          {myUser && (
+            <li>
+              <Link to='/checkout' onClick={closeSidebar}>
+                Checkout
+              </Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </aside>

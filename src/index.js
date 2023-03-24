@@ -13,19 +13,21 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <Auth0Provider
-    domain='{dev-gzzcm3v1m63q53un.us.auth0.com}'
-    clientId='{ROgEEXPZcfV1ex5k0v2pxZs7Ra4oG2bJ}'
+    domain='dev-gzzcm3v1m63q53un.us.auth0.com'
+    clientId='ROgEEXPZcfV1ex5k0v2pxZs7Ra4oG2bJ'
     authorizationParams={{
       redirect_uri: window.location.origin,
     }}
     cacheLocation='localstorage'
   >
     <ProductsProvider>
-      <FilterProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </FilterProvider>
+      <UserProvider>
+        <FilterProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </FilterProvider>
+      </UserProvider>
     </ProductsProvider>
   </Auth0Provider>
 );
